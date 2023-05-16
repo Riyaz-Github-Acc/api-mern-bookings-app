@@ -15,6 +15,7 @@ const HotelSchema = new mongoose.Schema({
     city: {
         type: String,
         required: true,
+        required: true,
     },
 
     address: {
