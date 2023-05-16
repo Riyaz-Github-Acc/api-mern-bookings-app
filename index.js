@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 // Routes
 import authRoute from "./routes/authRoute.js";
@@ -28,6 +29,8 @@ mongoose.connection.on("disconnected", () => {
 });
 
 // Middlewares
+// CORS
+app.use(cors());
 
 // To Use JSON In Express Application
 app.use(express.json());
