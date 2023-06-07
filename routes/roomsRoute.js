@@ -1,10 +1,11 @@
 import express from "express";
 import {
-    createRoom,
-    deleteRoom,
-    updateRoom,
-    getRoom,
-    getAllRoom,
+  createRoom,
+  deleteRoom,
+  updateRoom,
+  updateRoomAvailability,
+  getRoom,
+  getAllRoom,
 } from "../controllers/roomController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -15,6 +16,7 @@ router.post("/:hotelid", verifyAdmin, createRoom);
 
 // UPDATE
 router.put("/:id", verifyAdmin, updateRoom);
+router.put("/availability/:id", updateRoomAvailability);
 
 // DELETE
 router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);

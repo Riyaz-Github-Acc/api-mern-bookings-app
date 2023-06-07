@@ -15,17 +15,17 @@ dotenv.config();
 
 // Connection To MongoDB
 const connect = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB);
-        console.log("Connected to MongoDB");
-    } catch (err) {
-        throw err;
-    }
+  try {
+    await mongoose.connect(process.env.MONGODB);
+    console.log("Connected to MongoDB");
+  } catch (err) {
+    throw err;
+  }
 };
 
 // Incase of the Disconnection
 mongoose.connection.on("disconnected", () => {
-    console.log("MongoDB Disconnected!");
+  console.log("MongoDB Disconnected!");
 });
 
 // Middlewares
@@ -46,18 +46,18 @@ app.use("/api/users", usersRoute);
 
 // For Handling Errors
 app.use((err, req, res, next) => {
-    const errorStatus = err.status || 500;
-    const errorMessage = err.message || "Something went wrong!";
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Something went wrong!";
 
-    res.status(errorStatus).json({
-        success: false,
-        status: errorStatus,
-        message: errorMessage,
-    });
+  res.status(errorStatus).json({
+    success: false,
+    status: errorStatus,
+    message: errorMessage,
+  });
 });
 
 // Server
 app.listen(8000, () => {
-    connect();
-    console.log("server started");
+  connect();
+  console.log("server started");
 });
