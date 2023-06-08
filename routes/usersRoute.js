@@ -1,9 +1,9 @@
 import express from "express";
 import {
-    deleteUser,
-    updateUser,
-    getUser,
-    getAllUser,
+  deleteUser,
+  updateUser,
+  getUser,
+  getAllUser,
 } from "../controllers/userController.js";
 import { verifyToken, verifyUser, verifyAdmin } from "../utils/verifyToken.js";
 
